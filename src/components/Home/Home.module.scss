@@ -1,0 +1,71 @@
+.container {
+  height: 75%;
+
+  .btnContainer {
+    display: flex;
+    margin: 10px;
+    justify-content: end;
+    height: 10%;
+  }
+
+  .weatherContainer {
+    height: 90%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+
+    .contentContainer {
+      width: 90%;
+      height: 90%;
+      background-color: aqua;
+      border: 5px solid rosybrown;
+      border-radius: 5px;
+      display: flex;
+      flex-direction: column;
+
+      .header {
+        background-color: brown;
+        height: 10%;
+      }
+
+      .content {
+        background-color: #ba7474;
+        height: 90%;
+        display: flex;
+
+        .todayInfo {
+          width: 50%;
+          height: 100%;
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+          .additionalInfo{
+
+          }
+          .weatherToday{
+
+          }
+          .nameCity{
+
+          }
+
+        }
+
+        .nextDayInfo {
+          width: 50%;
+          height: 100%;
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+          .weatherTomorrow {}
+          .weatherAfter{}
+
+        }
+
+      }
+
+
+    }
+  }
+}
