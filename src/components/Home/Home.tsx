@@ -1,8 +1,8 @@
 import React from 'react';
 import style from './Home.module.scss';
-import {ForecastDayType, ForecastType, StateType} from "../../common/types/type";
-import {getWeatherInCity} from "../../api/api";
-import {useParams, useNavigate} from "react-router-dom";
+import {ForecastDayType, StateType} from "../../common/types/type";
+import {useNavigate, useParams} from "react-router-dom";
+import { NextDays } from './NextDays/NextDays';
 
 
 type HomePropsType = {
@@ -24,10 +24,7 @@ export const Home = (props: HomePropsType) => {
     return (
         <div className={style.container}>
             <div className={style.btnContainer}>
-                <button onClick={() => {
-                    navigate(`/moreInfo/${name}`)
-                }}>Подробнее
-                </button>
+                <button onClick={() => {navigate(`/moreInfo/${name}`)}}>Прогноз на 10 дней</button>
                 <button onClick={changeCity} value={'Minsk'}>Минск</button>
                 <button onClick={changeCity} value={'Moscow City'}>Москва</button>
                 <button onClick={changeCity} value={'Bratislava'}>Братислав</button>
@@ -58,27 +55,14 @@ export const Home = (props: HomePropsType) => {
                             </div>
                         </div>
                         <div className={style.nextDayInfo}>
-                            <div className={style.weatherTomorrow}>
+                            <p>Завтра</p>
                                 <NextDays forecastday={props.state.forecast.forecastday[1]}/>
+                            <p>Послезавтра</p>
                                 <NextDays forecastday={props.state.forecast.forecastday[2]}/>
-                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>)
 }
-type NextDaysProps = {
-    forecastday: ForecastDayType
-}
 
-const NextDays: React.FC<NextDaysProps> = ({forecastday}) => {
-    return (
-        <div className={style.weatherTomorrow}>
-            <span>мин Т{forecastday.day.mintemp_c}</span>
-            <span>макс Т{forecastday.day.maxtemp_c}</span>
-            <span>{forecastday.day.condition.text}</span>
-        </div>
-    )
-
-}

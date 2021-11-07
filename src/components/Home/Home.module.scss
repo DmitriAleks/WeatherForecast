@@ -8,7 +8,9 @@
     margin: 10px;
     justify-content: end;
     height: 10%;
-
+    :nth-child(1){
+      margin-right: 40%;
+    }
     button {
       background-color: hsl(237, 18%, 59%);
     }
@@ -31,10 +33,11 @@
       box-shadow: 5px 5px 5px #363542;
 
       .header {
-        background-color: brown;
         height: 5%;
         display: flex;
         justify-content: space-around;
+        font-size: 16px;
+        color: #fff;
       }
 
       .content {
@@ -54,8 +57,8 @@
             height: 20%;
             background-color: $background;
             font-size: $fontSize;
-            border-top:5px solid $background ;
-            border-right: 5px solid $background ;
+            border-top: 5px solid $background;
+            border-right: 5px solid $background;
             border-top-right-radius: 5px;
           }
 
@@ -108,19 +111,18 @@
           height: 100%;
           display: flex;
           flex-direction: column;
-          justify-content: space-between;
+          justify-content: space-around;
+          padding-left: 20px;
 
-          .weatherTomorrow {
+          p {
+            margin: 0;
+            height: 15px;
+            text-align: center;
+            font-size: $fontSize;
+            color: #fff;
           }
-
-          .weatherAfter {
-          }
-
         }
-
       }
-
-
     }
   }
 }
