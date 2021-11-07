@@ -3,40 +3,32 @@ import style from './App.module.scss'
 import {getWeatherInCity} from './api/api';
 import {Header} from './components/Header/Header';
 import {Home} from "./components/Home/Home";
+import { StateType } from './common/types/type';
 
-
-type LocationType = {
-    country: string
-    lat: number
-    localtime: "2021-11-06 22:19"
-    localtime_epoch: number
-    lon: number
-    name: string
-    region: string
-    tz_id: string
-}
-
-type StateType = {
-    current: {},
-    forecast: {},
-    location: LocationType,
-}
 
 
 function App() {
-    const [state,setState] = useState<any>({})
+    const [state,setState] = useState<StateType>({} as StateType)
+    const [init, setInit] = useState<boolean>(false)
+
+
+    const changeState = (state:StateType) => {
+        setState(state)
+    }
     console.log(state)
+
 
     useEffect(() => {
         getWeatherInCity.currentWeather('Minsk')
             .then((res) => {
                 setState(res.data)
+                setInit(true)
             })
     }, [])
     return (
         <div className={style.container}>
             <Header />
-            <Home state={state}/>
+            {init && <Home state={state} changeState={changeState}/>}
         </div>
     );
 }

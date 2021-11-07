@@ -26,12 +26,14 @@
 
       .header {
         background-color: brown;
-        height: 10%;
+        height: 5%;
+        display: flex;
+        justify-content: space-around;
       }
 
       .content {
         background-color: #ba7474;
-        height: 90%;
+        height: 95%;
         display: flex;
 
         .todayInfo {
