@@ -6,7 +6,7 @@ const instance = axios.create({
 });
 
 export const getWeatherInCity = {
-    currentWeather(city: string) {
+    currentWeather(city: string = 'Minsk' ) {
         return instance.get(`/forecast.json?key=889bf2e72ffb4c7db78131955210611&q=${city}&days=3&aqi=no&lang=ru`)
     },
     weatherOnTenDays(city: string) {

@@ -3,32 +3,41 @@ import style from './App.module.scss'
 import {getWeatherInCity} from './api/api';
 import {Header} from './components/Header/Header';
 import {Home} from "./components/Home/Home";
-import { StateType } from './common/types/type';
+import {StateType} from './common/types/type';
+import {Route, Routes, useParams} from "react-router-dom";
+import {HourlyWeather} from "./components/HourlyWeather/HourlyWeather";
 
 
-
-function App() {
-    const [state,setState] = useState<StateType>({} as StateType)
+const App = () => {
+    const {name} = useParams()
+    console.log(name)
+    const [state, setState] = useState<StateType>({} as StateType)
     const [init, setInit] = useState<boolean>(false)
+    const [currentCity, SetCurrentCity] = useState('Minsk')
 
 
-    const changeState = (state:StateType) => {
-        setState(state)
+    const changeState = (nameCity: string) => {
+        SetCurrentCity(nameCity)
     }
-    console.log(state)
-
 
     useEffect(() => {
-        getWeatherInCity.currentWeather('Minsk')
+        getWeatherInCity.currentWeather(currentCity)
             .then((res) => {
+                console.log(res)
                 setState(res.data)
                 setInit(true)
             })
-    }, [])
+    }, [currentCity])
     return (
         <div className={style.container}>
-            <Header />
-            {init && <Home state={state} changeState={changeState}/>}
+            <Header/>
+            {/*{init && <Home state={state} changeState={changeState}/>}*/}
+            <Routes>
+                {init && <Route path='/:name' element={<Home state={state} changeState={changeState}/>}/>}
+                <Route  path='/moreInfo/:name' element={<HourlyWeather />}/>
+            </Routes>
+
+
         </div>
     );
 }

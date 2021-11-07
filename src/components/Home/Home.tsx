@@ -2,35 +2,32 @@ import React from 'react';
 import style from './Home.module.scss';
 import {StateType} from "../../common/types/type";
 import {getWeatherInCity} from "../../api/api";
+import {useParams, useNavigate} from "react-router-dom";
+
 
 type HomePropsType = {
     state: StateType
-    changeState:(state:StateType) => void
+    changeState:(nameCity:string) => void
 }
 
 export const Home = (props: HomePropsType) => {
+   const{name} = useParams()
+   const navigate = useNavigate()
 
-    const callbackFunct = (event: React.MouseEvent) => {
-        funct((event.target as HTMLTextAreaElement).value)
+
+    const changeCity = (event: React.MouseEvent) => {
+        navigate(`/${(event.target as HTMLTextAreaElement).value}`);
+        props.changeState((event.target as HTMLTextAreaElement).value);
     }
 
-    const funct = (city:string) => {
-        getWeatherInCity.currentWeather(city)
-            .then((res)=>{
-                changeCity(res.data)
-            })
-    }
-
-    const changeCity = (state:StateType) => {
-        props.changeState(state)
-    }
 
     return (
         <div className={style.container}>
             <div className={style.btnContainer}>
-                <button onClick={callbackFunct} value={'Минск'} >Минск</button>
-                <button onClick={callbackFunct} value={'Москва'}>Москва</button>
-                <button onClick={callbackFunct} value={'Братислав'}>Братислав</button>
+                <button onClick={()=>{navigate(`/moreInfo/${name}`)}} >Подробнее</button>
+                <button onClick={changeCity} value={'Minsk'} >Минск</button>
+                <button onClick={changeCity} value={'Moscow City'}>Москва</button>
+                <button onClick={changeCity} value={'Bratislava'}>Братислав</button>
             </div>
             <div className={style.weatherContainer}>
                 <div className={style.contentContainer}>
