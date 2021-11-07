@@ -23,7 +23,6 @@ const App = () => {
     useEffect(() => {
         getWeatherInCity.currentWeather(currentCity)
             .then((res) => {
-                console.log(res)
                 setState(res.data)
                 setInit(true)
             })
@@ -31,7 +30,6 @@ const App = () => {
     return (
         <div className={style.container}>
             <Header/>
-            {/*{init && <Home state={state} changeState={changeState}/>}*/}
             <Routes>
                 {init && <Route path='/:name' element={<Home state={state} changeState={changeState}/>}/>}
                 <Route  path='/moreInfo/:name' element={<HourlyWeather />}/>

@@ -1,3 +1,5 @@
+@import "./../../common/style/variables";
+
 .container {
   height: 75%;
 
@@ -6,6 +8,10 @@
     margin: 10px;
     justify-content: end;
     height: 10%;
+
+    button {
+      background-color: hsl(237, 18%, 59%);
+    }
   }
 
   .weatherContainer {
@@ -18,11 +24,11 @@
     .contentContainer {
       width: 90%;
       height: 90%;
-      background-color: aqua;
-      border: 5px solid rosybrown;
+      border: 5px solid $background;
       border-radius: 5px;
       display: flex;
       flex-direction: column;
+      box-shadow: 5px 5px 5px #363542;
 
       .header {
         background-color: brown;
@@ -32,7 +38,7 @@
       }
 
       .content {
-        background-color: #ba7474;
+        background-color: #aaa1d3;
         height: 95%;
         display: flex;
 
@@ -41,15 +47,58 @@
           height: 100%;
           display: flex;
           flex-direction: column;
-          justify-content: space-between;
-          .additionalInfo{
+          justify-content: space-around;
 
+          .additionalInfo {
+            padding: 5px;
+            height: 20%;
+            background-color: $background;
+            font-size: $fontSize;
+            border-top:5px solid $background ;
+            border-right: 5px solid $background ;
+            border-top-right-radius: 5px;
           }
-          .weatherToday{
 
+          .weatherToday {
+            padding-top: 20px;
+            height: 60%;
+            display: flex;
+            flex-direction: row;
+            text-align: center;
+
+            span {
+              font-size: 80px;
+              margin-left: 20%;
+              color: #fff;
+            }
+
+            .description {
+              display: flex;
+              flex-direction: column;
+              margin-left: 20%;
+
+              span {
+                font-size: $fontSize;
+              }
+
+              img {
+                height: 60px;
+                width: 60px;
+              }
+            }
           }
-          .nameCity{
 
+          .nameCity {
+            padding: 5px;
+            margin-left: 20px;
+            height: 20%;
+            font-size: 25px;
+
+            span {
+              margin-left: 20px;
+              font-size: 50px;
+              color: #fff;
+            }
           }
 
         }
@@ -60,8 +109,12 @@
           display: flex;
           flex-direction: column;
           justify-content: space-between;
-          .weatherTomorrow {}
-          .weatherAfter{}
+
+          .weatherTomorrow {
+          }
+
+          .weatherAfter {
+          }
 
         }
 

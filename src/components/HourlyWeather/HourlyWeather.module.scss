@@ -1,0 +1,30 @@
+.container {
+  .btnContainer {
+
+  }
+
+  .contentContainer {
+    background-color: rosybrown;
+
+    .content {
+
+      .days {
+        background-color: brown;
+        display: flex;
+        height: 400px;
+        justify-content: space-around;
+
+        .day {
+          width: 30px;
+          display: flex;
+          flex-direction: column;
+
+        }
+      }
+
+    }
+
+  }
+
+
+}
