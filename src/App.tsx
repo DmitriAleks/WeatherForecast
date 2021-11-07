@@ -9,8 +9,6 @@ import {HourlyWeather} from "./components/HourlyWeather/HourlyWeather";
 
 
 const App = () => {
-    const {name} = useParams()
-    console.log(name)
     const [state, setState] = useState<StateType>({} as StateType)
     const [init, setInit] = useState<boolean>(false)
     const [currentCity, SetCurrentCity] = useState('Minsk')
@@ -31,7 +29,7 @@ const App = () => {
         <div className={style.container}>
             <Header/>
             <Routes>
-                {init && <Route path='/:name' element={<Home state={state} changeState={changeState}/>}/>}
+                {init && <Route path='/:name' element={<Home state={state} changeState={changeState} />}/>}
                 <Route  path='/moreInfo/:name' element={<HourlyWeather />}/>
             </Routes>
 

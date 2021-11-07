@@ -1,14 +1,13 @@
 @import "./../../../common/style/variables";
 .container{
   padding-left: 10%;
-  border: 2px  ;
   box-shadow: 0 5px 5px #8486a9;
   display: flex;
   flex-direction: column;
   height: 40%;
   font-size: $fontSize;
   :nth-child(1){
-    font-size:  40px;
+    font-size:  30px;
     color: #fff;
   }
 }
