@@ -9,7 +9,8 @@ type DayProps = {
 }
 
 
-export const Day = (props: DayProps) => {
+export const Day = React.memo((props: DayProps) => {
+    console.log('dat')
     const day = props.date.toString()
     return (
         <div className={style.day}>
@@ -21,4 +22,4 @@ export const Day = (props: DayProps) => {
 
         </div>
     )
-}
+});

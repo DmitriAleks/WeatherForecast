@@ -1,12 +1,12 @@
 import {ForecastDayType} from "../../../common/types/type";
 import React from "react";
-import style from './NextDats.module.scss'
+import style from './NextDats.module.scss';
 
 type NextDaysProps = {
     forecastday: ForecastDayType
 }
 
-export const NextDays: React.FC<NextDaysProps> = ({forecastday}) => {
+export const NextDays: React.FC<NextDaysProps> = React.memo(({forecastday}) => {
     console.log(forecastday)
     return (
         <div className={style.container}>
@@ -17,5 +17,4 @@ export const NextDays: React.FC<NextDaysProps> = ({forecastday}) => {
             </div>
         </div>
     )
-
-}
+});
