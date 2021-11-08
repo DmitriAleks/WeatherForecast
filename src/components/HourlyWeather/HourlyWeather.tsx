@@ -7,13 +7,13 @@ import {Day} from "./Day/Day";
 
 
 export const HourlyWeather = () => {
+    console.log('HourlyWeather')
     const {name} = useParams();
     const navigate = useNavigate();
     const [state, setState] = useState<Array<SixteenDaysWeatherType>>([])
     state.length = 10
     const [value, setValue] = useState<string>('')
     const ChangeValue = (e: ChangeEvent<HTMLInputElement>) => {
-        console.log(e.target.value)
         setValue(e.target.value.replace(/[^a-zA-Z\d]/ig, ""))
     }
     const findCity = () => {
@@ -25,6 +25,7 @@ export const HourlyWeather = () => {
             getWeatherInCity.weatherOnTenDays(name)
                 .then((res) => {
                     setState(res.data.data)
+                    console.log(res.data.data)
                 })
         }
     }, [name])
