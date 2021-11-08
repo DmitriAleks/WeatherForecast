@@ -6,8 +6,7 @@ import {NextDays} from './NextDays/NextDays';
 import {getWeatherInCity} from "../../api/api";
 
 
-export const Home = () => {
-    console.log('Home')
+export const Home = React.memo(() => {
     const {name} = useParams()
     const navigate = useNavigate()
     const [state, setState] = useState<StateType>({} as StateType)
@@ -76,5 +75,5 @@ export const Home = () => {
             </div>}
         </div>
     )
-}
+})
 

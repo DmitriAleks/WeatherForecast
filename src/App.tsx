@@ -5,9 +5,7 @@ import {Home} from "./components/Home/Home";
 import {Route, Routes, useLocation, useNavigate} from "react-router-dom";
 import {HourlyWeather} from "./components/HourlyWeather/HourlyWeather";
 
-
 const App = () => {
-    console.log('App')
     const navigate = useNavigate()
     const location = useLocation()
     useEffect(()=>{

@@ -1,6 +1,8 @@
 @import "./../../common/style/variables";
-.test{
+
+.test {
   height: 75%;
+
   .container {
     height: 100%;
 
@@ -9,9 +11,11 @@
       margin: 10px;
       justify-content: end;
       height: 10%;
-      :nth-child(1){
+
+      :nth-child(1) {
         margin-right: 40%;
       }
+
       button {
         background-color: hsl(237, 18%, 59%);
       }

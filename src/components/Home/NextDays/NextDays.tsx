@@ -7,6 +7,7 @@ type NextDaysProps = {
 }
 
 export const NextDays: React.FC<NextDaysProps> = ({forecastday}) => {
+    console.log(forecastday)
     return (
         <div className={style.container}>
             <span>{forecastday.day.mintemp_c}....{forecastday.day.maxtemp_c}</span>

@@ -6,8 +6,7 @@ import style from './HourlyWeather.module.scss';
 import {Day} from "./Day/Day";
 
 
-export const HourlyWeather = () => {
-    console.log('HourlyWeather')
+export const HourlyWeather = React.memo(() => {
     const {name} = useParams();
     const navigate = useNavigate();
     const [state, setState] = useState<Array<SixteenDaysWeatherType>>([])
@@ -38,8 +37,8 @@ export const HourlyWeather = () => {
                     navigate(`/${name}`)
                 }}>Назад
                 </button>
-                <input type="text" value={value} onChange={ChangeValue} />
-                <button onClick={findCity} >Показать</button>
+                <input type="text" value={value} onChange={ChangeValue}/>
+                <button onClick={findCity}>Показать</button>
             </div>
             <div className={style.contentContainer}>
                 <div className={style.content}>
@@ -47,11 +46,11 @@ export const HourlyWeather = () => {
                     <div className={style.days}>
                         {state.map((el) => {
                             return <Day date={el.datetime} mint={el.min_temp}
-                                         maxt={el.max_temp}/>
+                                        maxt={el.max_temp}/>
                         })}
                     </div>
                 </div>
 
             </div>
         </div>)
-}
+})
